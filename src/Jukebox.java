@@ -4,6 +4,8 @@
  */
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -22,8 +24,10 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
-
+public class Jukebox implements Runnable, ActionListener {
+	Song song = new Song("music.mp3");
+	JButton button1 = new JButton();
+	JButton button2 = new JButton();
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
 	}
@@ -32,9 +36,9 @@ public class Jukebox implements Runnable {
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
-Song song = new Song("music.mp3");
+
 		// 5. Play the Song
-song.play();
+
 		/*
 		 * 6. Create a user interface for your Jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
@@ -45,8 +49,9 @@ song.play();
         JFrame frame = new JFrame();
         frame.setVisible(true);
         JPanel panel = new JPanel();
-        JButton button1 = new JButton();
-        JButton button2 = new JButton();
+        
+        button1.addActionListener(this);
+        
         frame.add(panel);
         panel.add(button1);
         panel.add(button2);
@@ -58,6 +63,15 @@ song.play();
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		JButton button3 = (JButton) arg0.getSource();
+		if (button3 == button1) {
+			song.stop();
+		}
 	}
 
 }
