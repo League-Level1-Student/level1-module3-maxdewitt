@@ -19,7 +19,7 @@ import javax.swing.SwingUtilities;
 
 public class MagicBox extends JPanel implements Runnable, MouseListener {
 
-	/*
+	 /*
 	 * We are going to hide secrets within the magic box. 
 	 * When the user clicks on a secret place, stuff will happen.
 	 * 
@@ -31,14 +31,14 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 */
 	
 	
-
+	
 	BufferedImage backgroundImage;
-
+	
 	public static void main(String[] args) throws Exception {
 		SwingUtilities.invokeLater(new MagicBox());
 	
 		JFrame frame = new JFrame();
-		frame.addMouseListener();
+		frame.addMouseListener((MouseListener) frame);
 		
 	}
 

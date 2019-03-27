@@ -32,13 +32,12 @@ public class Jukebox implements Runnable, ActionListener {
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
 	}
-
            public void run() {
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
 
-		// 5. Play the Song
+	    //
 
 		/*
 		 * 6. Create a user interface for your Jukebox so that the user can to
