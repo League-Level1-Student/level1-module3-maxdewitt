@@ -26,6 +26,7 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 
 public class Jukebox implements Runnable, ActionListener {
 	Song song = new Song("music.mp3");
+	Song song1 = new Song("music2.mp3");
 	JButton button1 = new JButton();
 	JButton button2 = new JButton();
 	public static void main(String[] args) {
@@ -51,7 +52,7 @@ public class Jukebox implements Runnable, ActionListener {
         JPanel panel = new JPanel();
         
         button1.addActionListener(this);
-        
+        button2.addActionListener(this);
         frame.add(panel);
         panel.add(button1);
         panel.add(button2);
@@ -71,6 +72,13 @@ public class Jukebox implements Runnable, ActionListener {
 		JButton button3 = (JButton) arg0.getSource();
 		if (button3 == button1) {
 			song.stop();
+			song1.stop();
+			song1.play();
+		}
+		else if(button3 == button2) {
+			song1.stop();
+			song1.stop();
+			song.play();
 		}
 	}
 
