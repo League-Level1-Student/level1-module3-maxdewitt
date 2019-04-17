@@ -24,23 +24,23 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	 /*
 	 * We are going to hide secrets within the magic box. 
 	 * When the user clicks on a secret place, stuff will happen.
-	 * 
+	 
 	 * 1. Make the frame respond to mouse clicks.
 	 
 	 * 2. When the mouse is clicked, use the Media Palace (read the code in the default package) to play sounds, show images or speak.
-	 * 
+	 
 	 * 3. backgroundImage.getRGB(keyEvent.getX(), keyEvent.getY()) will give you the color of the current pixel.
 	 */
 
 	
-	
+ JFrame frame = new JFrame("The Magic Box contains many secrets...");
 	BufferedImage backgroundImage;
 	
 	public static void main(String[] args) throws Exception {
 		SwingUtilities.invokeLater(new MagicBox());
 	
 		
-		;
+		
 		
 	}
 
@@ -56,7 +56,7 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	JLabel label = new JLabel();
 	private void createUI() {
 		
-		JFrame frame = new JFrame("The Magic Box contains many secrets...");
+		
 		frame.addMouseListener(this);
 		frame.add(label);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
@@ -90,7 +90,8 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 		// TODO Auto-generated method stub
 		System.out.println("test");
 		
-		label = media.loadImageFromTheInternet("https://www.biznews.com/wp-content/uploads/2019/01/Lila_Kuh.jpg"));
+	label =	media.loadImageFromWithinProject("one-big-cabbage.jpg");
+		frame.add(label);
 		
 	}
 	
